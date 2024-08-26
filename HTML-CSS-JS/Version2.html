@@ -25,6 +25,17 @@
         display: none;
       }
 
+      #clearHistory {
+        display: none;
+        position: sticky;
+        top: 0%;
+        left: 90%;
+        margin: 5px;
+        color: var(--borderColor);
+        background-color: var(--background);
+        border: solid, var(--primary), 1px;
+      }
+
       #dieSize {
         width: 75px;
         text-align: center;
@@ -33,7 +44,8 @@
         border: none;
       }
 
-      #result {
+      #display {
+        display: none;
         text-align: center;
         justify-content: center;
         align-items: center;
@@ -43,6 +55,14 @@
         background-color: var(--background);
         border: solid, var(--borderColor), 5px;
         overflow-y: scroll;
+      }
+
+      #result {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-height: 50vh;
       }
 
       /* This is to make all of the button look uniform in nature */
@@ -225,8 +245,16 @@
         </button>
       </div>
     </div>
-    <div id="result"></div>
-
+    <div id="display">
+      <button
+        onclick="clearHistory()"
+        class="clearButton button"
+        id="clearHistory"
+      >
+        Clear History
+      </button>
+      <div id="result"></div>
+    </div>
     <script>
       /* This is for the JavaScript that makes the Dice Roll */
 
@@ -248,14 +276,11 @@
       let dXCount = document.getElementById("dXCount");
       let dXButton = document.getElementById("dXButton");
       let dieSize = document.getElementById("dieSize");
+      let display = document.getElementById("display");
       let result = document.getElementById("result");
+      let clearHistoryButton = document.getElementById("clearHistory");
       let timesRolled = 0;
       let sumOfDice = 0;
-
-      /* Originally I went with Event Listeners (see example below)
-      but I decided to switch to Onclick functions in the HTML selection.  This lead to a smoother application */
-      /* Button Clicks */
-      //d4Button.addEventListener("click", rollDice(4));
 
       function rollDice(size, quantity) {
         console.log(`size`, size, `quantity`, quantity.value);
@@ -379,6 +404,8 @@
         console.log(`Outcome: `, outcome);
         result.innerHTML += `<p>D${maxValue} result is ${outcome}</p>`;
         sumOfDice += outcome;
+        display.style.display = "block";
+        clearHistoryButton.style.display = "block";
       }
 
       // Classic Random Number Generator Helper Function
@@ -391,8 +418,7 @@
       // Resets all Values for the Dice Rollers
       function reset() {
         console.log(`Reset Button Clicked`);
-        timesRolled = 0;
-        sumOfDice = 0;
+        clearHistory();
         d4Count.value = 0;
         d6Count.value = 0;
         d8Count.value = 0;
@@ -402,7 +428,16 @@
         d100Count.value = 0;
         dXCount.value = 0;
         dieSize.value = 0;
+      }
+
+      // Clears the History of the Dice Roller but preserves the numbers in the Code.
+      function clearHistory() {
+        console.log(`Clearing History`);
+        timesRolled = 0;
+        sumOfDice = 0;
         result.textContent = "";
+        display.style.display = "none";
+        clearHistoryButton.style.display = "none";
       }
     </script>
   </body>
