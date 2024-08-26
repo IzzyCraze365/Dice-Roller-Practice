@@ -327,6 +327,8 @@
             sumOfDice += outcome;
           }
           result.innerHTML += `<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`;
+          display.style.display = "block";
+          clearHistoryButton.style.display = "block";
           sumOfDice = 0;
         }
       }
