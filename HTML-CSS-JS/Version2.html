@@ -94,7 +94,7 @@
   <body>
     <h1>Izzy's Dice Roller</h1>
     <div class="gridContainer">
-      <div>Number of Dice Dice Size Bonus</div>
+      <div>Select the <b>Number of Dice</b> you want to Roll</div>
       <div>
         <input
           class="diceCount"
@@ -294,22 +294,28 @@
           result.innerHTML += `<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`;
           sumOfDice = 0;
         } else {
-          alert("Select number of dice you wish to roll.");
+          alert(`Select how many D${size}s you wish to roll.`);
         }
       }
 
       // This had to be seperate because it is such a wonky function to try to intergrate.
       function rollVariableDice(size, quantity) {
         console.log(`size`, size, `quantity`, quantity.value);
-        if (parseInt(dieSize.value) === 0 && parseInt(dXCount.value) > 0) {
+        if (parseInt(dieSize.value) === 0 && parseInt(dXCount.value) >= 0) {
           console.log(
             "dieSize.value",
             parseInt(dieSize.value),
             "dXCount.value",
             parseInt(dXCount.value)
           );
-          alert("Select number of sides on your dice.");
-        } else if (quantity.value > 0) {
+          alert(
+            `When rolling the variable die (Roll D?), \nPlease, select number of sides you wish to roll. \nYou cannot roll a die with 0 sides...`
+          );
+        } else if (parseInt(dXCount.value) === 0) {
+          alert(
+            `Select how many Variable Dice (currently D${size}s) you wish to roll.`
+          );
+        } else {
           timesRolled += 1;
           console.log("Times Rolled: ", timesRolled);
           result.innerHTML += `<p class="rollCounter">Roll #${timesRolled}</p>`;
@@ -322,8 +328,6 @@
           }
           result.innerHTML += `<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`;
           sumOfDice = 0;
-        } else {
-          alert("Select number of dice you wish to roll.");
         }
       }
 
