@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Izzy's Dice Roller</title>
+    <style>
+      /* This is the CSS that makes everything look pretty */
+      .gridContainer {
+        display: grid;
+      }
+      .button {
+        color: chocolate;
+        background-color: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Izzy's Dice Roller</h1>
+    <form class="gridContainer">
+      <div>Number of Dice Dice Size Bonus</div>
+      <div>
+        <input
+          class="diceCount"
+          id="d4Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button class="rollButton button" id="d4Button">Roll D4</button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d6Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button class="rollButton button" id="d6Button">Roll D6</button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d8Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button class="rollButton button" id="d8Button">Roll D8</button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d10Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button class="rollButton button" id="d10Button">Roll D10</button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d12Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button class="rollButton button" id="d12Button">Roll d12</button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d20Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button class="rollButton button" id="d20Button">Roll D20</button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d100Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button class="rollButton button" id="d100Button">Roll D100</button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="dXCount"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button class="rollButton button" id="dXButton">Roll D</button>
+        <input id="dieSize" type="number" min="0"/>
+      </div>
+      <div>
+        <button class="rollButton button" id="rollButton">Roll Dice</button>
+        <button class="resetButton button" id="Reset">Reset</button>
+      </div>
+    </form>
+    <div id="result">waffle</div>
+
+    <script>
+      /* This is for the JavaScript that makes the Dice Roll */
+
+      /* Linking IDs to usable Variables */
+      let d4Count = document.getElementById("d4Count");
+      let d4Button = document.getElementById("d4Button");
+      let d6Count = document.getElementById("d6Count");
+      let d6Button = document.getElementById("d6Button");
+      let d8Count = document.getElementById("d8Count");
+      let d8Button = document.getElementById("d8Button");
+      let d10Count = document.getElementById("d10Count");
+      let d10Button = document.getElementById("d10Button");
+      let d12Count = document.getElementById("d12Count");
+      let d12Button = document.getElementById("d12Button");
+      let d20Count = document.getElementById("d20Count");
+      let d20Button = document.getElementById("d20Button");
+      let d100Count = document.getElementById("d100Count");
+      let d100Button = document.getElementById("d100Button");
+      let dXCount = document.getElementById("dXCount");
+      let dXButton = document.getElementById("dXButton");
+      let dieSize = document.getElementById("dieSize");
+      let result = document.getElementById("result");
+
+      /* Button Clicks */
+      d4Button.addEventListener("click", rollDice(4));
+      d6Button.addEventListener("click", rollDice(6));
+      d8Button.addEventListener("click", rollDice(8));
+      d10Button.addEventListener("click", rollDice(10));
+      d12Button.addEventListener("click", rollDice(12));
+      d20Button.addEventListener("click", rollDice(20));
+      d100Button.addEventListener("click", rollDice(100));
+      //dXButton.addEventListener("click", rollDice(dieSize));
+
+      function rollDice(X) {
+        console.log("dieSize", dieSize)
+        console.log(`d${X}Button clicked`);
+        let outcome = randomNum(1, X);
+        console.log(outcome);
+        result.textContent = `D${X} result is ${outcome}`;
+      }
+
+      function randomNum(min, max) {
+        let range = max - min + 1;
+        console.log(`Min: ${min} / Max: ${max} / Range: ${range}`);
+        return Math.floor(Math.random() * range) + min;
+      }
+
+      function reset() {}
+    </script>
+  </body>
+</html>

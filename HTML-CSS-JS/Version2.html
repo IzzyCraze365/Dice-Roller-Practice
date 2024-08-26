@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Izzy's Dice Roller</title>
+    <style>
+      /* This is the CSS that makes everything look pretty */
+      /* Color Schemes */
+      :root {
+        --primary: White;
+        --background: Black;
+        --borderColor: Red;
+        --button: chocolate;
+        --buttonBackground: lightblue;
+      }
+
+      /* I want all the input fields to be uniform */
+      input {
+        width: 50px;
+        text-align: center;
+      }
+
+      div:empty {
+        display: none;
+      }
+
+      #dieSize {
+        width: 75px;
+        text-align: center;
+        color: var(--button);
+        background-color: var(--buttonBackground);
+        border: none;
+      }
+
+      #result {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        max-height: 50vh;
+        color: var(--primary);
+        background-color: var(--background);
+        border: solid, var(--borderColor), 5px;
+        overflow-y: scroll;
+      }
+
+      /* This is to make all of the button look uniform in nature */
+      .button {
+        min-width: 75px;
+        color: var(--button);
+        background-color: var(--buttonBackground);
+      }
+
+      .gridContainer {
+        display: grid;
+      }
+
+      .rollCounter {
+        font-weight: bold;
+        text-align: left;
+        padding-left: 10%;
+        text-decoration: underline;
+        color: var(--borderColor);
+      }
+      .sumOfDice {
+        font-weight: bold;
+        text-align: right;
+        padding-right: 10%;
+        color: var(--primary);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Izzy's Dice Roller</h1>
+    <div class="gridContainer">
+      <div>Number of Dice Dice Size Bonus</div>
+      <div>
+        <input
+          class="diceCount"
+          id="d4Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(4, d4Count)"
+          class="rollButton button"
+          id="d4Button"
+        >
+          Roll D4
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d6Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(6, d6Count)"
+          class="rollButton button"
+          id="d6Button"
+        >
+          Roll D6
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d8Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(8, d8Count)"
+          class="rollButton button"
+          id="d8Button"
+        >
+          Roll D8
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d10Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(10, d10Count)"
+          class="rollButton button"
+          id="d10Button"
+        >
+          Roll D10
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d12Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(12, d12Count)"
+          class="rollButton button"
+          id="d12Button"
+        >
+          Roll d12
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d20Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(20, d20Count)"
+          class="rollButton button"
+          id="d20Button"
+        >
+          Roll D20
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d100Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(100, d100Count)"
+          class="rollButton button"
+          id="d100Button"
+        >
+          Roll D100
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="dXCount"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollVariableDice(dieSize.value, dXCount)"
+          class="rollButton button"
+          id="dXButton"
+        >
+          Roll D?
+        </button>
+        <input id="dieSize" type="number" value="0" min="0" />
+      </div>
+      <div>
+        <button
+          onclick="rollAllDice()"
+          class="rollButton button"
+          id="rollButton"
+        >
+          Roll Dice
+        </button>
+        <button onclick="reset()" class="resetButton button" id="Reset">
+          Reset
+        </button>
+      </div>
+    </div>
+    <div id="result"></div>
+
+    <script>
+      /* This is for the JavaScript that makes the Dice Roll */
+
+      /* Linking IDs to usable Variables */
+      let d4Count = document.getElementById("d4Count");
+      let d4Button = document.getElementById("d4Button");
+      let d6Count = document.getElementById("d6Count");
+      let d6Button = document.getElementById("d6Button");
+      let d8Count = document.getElementById("d8Count");
+      let d8Button = document.getElementById("d8Button");
+      let d10Count = document.getElementById("d10Count");
+      let d10Button = document.getElementById("d10Button");
+      let d12Count = document.getElementById("d12Count");
+      let d12Button = document.getElementById("d12Button");
+      let d20Count = document.getElementById("d20Count");
+      let d20Button = document.getElementById("d20Button");
+      let d100Count = document.getElementById("d100Count");
+      let d100Button = document.getElementById("d100Button");
+      let dXCount = document.getElementById("dXCount");
+      let dXButton = document.getElementById("dXButton");
+      let dieSize = document.getElementById("dieSize");
+      let result = document.getElementById("result");
+      let timesRolled = 0;
+      let sumOfDice = 0;
+
+      /* Originally I went with Event Listeners (see example below)
+      but I decided to switch to Onclick functions in the HTML selection.  This lead to a smoother application */
+      /* Button Clicks */
+      //d4Button.addEventListener("click", rollDice(4));
+
+      function rollDice(size, quantity) {
+        console.log(`size`, size, `quantity`, quantity.value);
+        if (quantity.value > 0) {
+          timesRolled += 1;
+          console.log("Times Rolled: ", timesRolled);
+          result.innerHTML += `<p class="rollCounter">Roll #${timesRolled}</p>`;
+          console.log(`d${size}Button clicked`);
+          console.log(`Count d${size}Count`);
+          rollDiceMultiple(size, quantity);
+          result.innerHTML += `<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`;
+          sumOfDice = 0;
+        } else {
+          alert("Select number of dice you wish to roll.");
+        }
+      }
+
+      // This had to be seperate because it is such a wonky function to try to intergrate.
+      function rollVariableDice(size, quantity) {
+        console.log(`size`, size, `quantity`, quantity.value);
+        if (parseInt(dieSize.value) === 0 && parseInt(dXCount.value) > 0) {
+          console.log(
+            "dieSize.value",
+            parseInt(dieSize.value),
+            "dXCount.value",
+            parseInt(dXCount.value)
+          );
+          alert("Select number of sides on your dice.");
+        } else if (quantity.value > 0) {
+          timesRolled += 1;
+          console.log("Times Rolled: ", timesRolled);
+          result.innerHTML += `<p class="rollCounter">Roll #${timesRolled}</p>`;
+          for (let i = 0; i < quantity.value; i++) {
+            console.log(`Rolling Die #${i + 1}`);
+            let outcome = randomNum(1, size);
+            console.log(`Outcome: `, outcome);
+            result.innerHTML += `<p>Variable Die with ${size} sides rolled a ${outcome}</p>`;
+            sumOfDice += outcome;
+          }
+          result.innerHTML += `<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`;
+          sumOfDice = 0;
+        } else {
+          alert("Select number of dice you wish to roll.");
+        }
+      }
+
+      // Function to Roll all selected Dice
+      function rollAllDice() {
+        let totalDice =
+          parseInt(d4Count.value) +
+          parseInt(d6Count.value) +
+          parseInt(d8Count.value) +
+          parseInt(d10Count.value) +
+          parseInt(d12Count.value) +
+          parseInt(d20Count.value) +
+          parseInt(d100Count.value) +
+          parseInt(dXCount.value);
+        console.log(`Total Dice being rolled =`, totalDice);
+        if (parseInt(dieSize.value) === 0 && parseInt(dXCount.value) > 0) {
+          console.log(
+            "dieSize.value",
+            parseInt(dieSize.value),
+            "dXCount.value",
+            parseInt(dXCount.value)
+          );
+          alert("Select number of sides on your dice.");
+          return;
+        } else if (totalDice > 0) {
+          timesRolled += 1;
+          console.log("Rolling all Dice, Times Rolled: ", timesRolled);
+          result.innerHTML += `<p class="rollCounter">Roll #${timesRolled}</p>`;
+          if (d4Count.value > 0) {
+            rollDiceMultiple(4, d4Count);
+          }
+          if (d6Count.value > 0) {
+            rollDiceMultiple(6, d6Count);
+          }
+          if (d8Count.value > 0) {
+            rollDiceMultiple(8, d8Count);
+          }
+          if (d10Count.value > 0) {
+            rollDiceMultiple(10, d10Count);
+          }
+          if (d12Count.value > 0) {
+            rollDiceMultiple(12, d12Count);
+          }
+          if (d20Count.value > 0) {
+            rollDiceMultiple(20, d20Count);
+          }
+          if (d100Count.value > 0) {
+            rollDiceMultiple(100, d100Count);
+          }
+          if (dXCount.value > 0) {
+            for (let i = 0; i < dXCount.value; i++) {
+              console.log(`Rolling Die #${i + 1}`);
+              let outcome = randomNum(1, dieSize.value);
+              console.log(`Outcome: `, outcome);
+              result.innerHTML += `<p>Variable Die with ${dieSize.value} sides rolled a ${outcome}</p>`;
+              sumOfDice += outcome;
+            }
+          }
+          result.innerHTML += `<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`;
+          sumOfDice = 0;
+        } else {
+          alert("Select some number of Dice to roll.");
+        }
+      }
+
+      function rollDiceMultiple(size, quantity) {
+        //This works by checking both to be above the Variable Dice
+        for (let i = 0; i < quantity.value; i++) {
+          console.log(`Times Rolling a D${size} = #${i + 1}`);
+          rollDiceDisplay(size);
+        }
+      }
+
+      // This function prints the results of the Dice Rolls.
+      function rollDiceDisplay(maxValue) {
+        //let newLine = document.createElement("p");
+        let outcome = randomNum(1, maxValue);
+        console.log(`Outcome: `, outcome);
+        result.innerHTML += `<p>D${maxValue} result is ${outcome}</p>`;
+        sumOfDice += outcome;
+      }
+
+      // Classic Random Number Generator Helper Function
+      function randomNum(min, max) {
+        let range = max - min + 1;
+        console.log(`Min: ${min} / Max: ${max} / Range: ${range}`);
+        return Math.floor(Math.random() * range) + min;
+      }
+
+      // Resets all Values for the 
+      function reset() {
+        console.log(`Reset Button Clicked`);
+        timesRolled = 0;
+        sumOfDice = 0;
+        d4Count.value = 0;
+        d6Count.value = 0;
+        d8Count.value = 0;
+        d10Count.value = 0;
+        d12Count.value = 0;
+        d20Count.value = 0;
+        d100Count.value = 0;
+        dXCount.value = 0;
+        dieSize.value = 0;
+        result.textContent = "";
+      }
+    </script>
+  </body>
+</html>
