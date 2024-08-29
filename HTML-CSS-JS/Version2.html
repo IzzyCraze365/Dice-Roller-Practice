@@ -94,6 +94,9 @@
   <body>
     <h1>Izzy's Dice Roller</h1>
     <div class="gridContainer">
+      <button class="toggle-theme-btn" id="toggleThemeBtn">
+        <i class="fa-solid fa-toggle-off"></i>
+      </button>
       <div>Select the <b>Number of Dice</b> you want to Roll</div>
       <div>
         <input
@@ -259,6 +262,7 @@
       /* This is for the JavaScript that makes the Dice Roll */
 
       /* Linking IDs to usable Variables */
+      let toggleThemeBtn = document.getElementById("toggleThemeBtn");
       let d4Count = document.getElementById("d4Count");
       let d4Button = document.getElementById("d4Button");
       let d6Count = document.getElementById("d6Count");
@@ -281,6 +285,10 @@
       let clearHistoryButton = document.getElementById("clearHistory");
       let timesRolled = 0;
       let sumOfDice = 0;
+
+toggleThemeBtn.addEventListener('click', ()=> {
+  document.body.classList.toggle('dark');
+})
 
       function rollDice(size, quantity) {
         console.log(`size`, size, `quantity`, quantity.value);
