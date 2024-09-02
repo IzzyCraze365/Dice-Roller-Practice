@@ -1,0 +1,84 @@
+   /* This is the CSS that makes everything look pretty */
+      /* Color Schemes */
+      :root {
+        --primary: White;
+        --background: Black;
+        --borderColor: Red;
+        --button: chocolate;
+        --buttonBackground: lightblue;
+      }
+
+      /* I want all the input fields to be uniform */
+      input {
+        width: 50px;
+        text-align: center;
+      }
+
+      div:empty {
+        display: none;
+      }
+
+      .clearHistory {
+        display: none;
+        position: sticky;
+        top: 0%;
+        left: 90%;
+        margin: 5px;
+        color: var(--borderColor);
+        background-color: var(--background);
+        border: solid, var(--primary), 1px;
+      }
+
+      .dieSize {
+        width: 75px;
+        text-align: center;
+        color: var(--button);
+        background-color: var(--buttonBackground);
+        border: none;
+      }
+
+      .display {
+        display: none;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        max-height: 50vh;
+        color: var(--primary);
+        background-color: var(--background);
+        border: solid, var(--borderColor), 5px;
+        overflow-y: scroll;
+      }
+
+      .result {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        max-height: 50vh;
+      }
+
+      /* This is to make all of the button look uniform in nature */
+      .button {
+        min-width: 75px;
+        color: var(--button);
+        background-color: var(--buttonBackground);
+      }
+
+      .gridContainer {
+        display: grid;
+      }
+
+      .rollCounter {
+        font-weight: bold;
+        text-align: left;
+        padding-left: 10%;
+        text-decoration: underline;
+        color: var(--borderColor);
+      }
+      .sumOfDice {
+        font-weight: bold;
+        text-align: right;
+        padding-right: 10%;
+        color: var(--primary);
+      }
