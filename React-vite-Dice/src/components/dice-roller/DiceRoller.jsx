@@ -5,7 +5,7 @@ const DiceRoller = () => {
   return (
     <>
     <div>DiceRoller</div>
-    <SingleDieRoll />
+    <SingleDieRoll />{/* I need to make the props passed be the die size */}
     </>
   )
 }
