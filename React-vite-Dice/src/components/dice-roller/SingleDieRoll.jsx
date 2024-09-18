@@ -16,7 +16,7 @@ function rollDice(size, quantity) {
     }
   }
 
-  // This had to be seperate because it is such a wonky function to try to intergrate.
+  // This had to be seperate because it is such a wonky function to try to intergrate. gotta love wonky
   function rollVariableDice(size, quantity) {
     console.log(`size`, size, `quantity`, quantity.value);
     if (parseInt(dieSize.value) === 0 && parseInt(dXCount.value) >= 0) {
