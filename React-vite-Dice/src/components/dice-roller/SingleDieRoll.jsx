@@ -1,6 +1,8 @@
 import React from 'react'
+import "./dice-roller.css"
 
-function rollDice(size, quantity) {
+/* 
+function rollDice(diceSize, quantity) {
     console.log(`size`, size, `quantity`, quantity.value);
     if (quantity.value > 0) {
       timesRolled += 1;
@@ -171,15 +173,30 @@ function rollDice(size, quantity) {
     display.style.display = "none";
     clearHistoryButton.style.display = "none";
   }
-
+ */
 
   /* TODO make it so the die size and number of dice are passed as props */
-const SingleDieRoll = (props) => {
+const SingleDieRoll = ({diceSize}) => {
+  function rollDice({dieSize}, quantity) {
+    console.log(`size`, diceSize/* , `quantity`, quantity.value */);
+    if (quantity.value > 0) {
+      timesRolled += 1;
+      console.log("Times Rolled: ", timesRolled);
+      result.innerHTML += `<p class="rollCounter">Roll #${timesRolled}</p>`;
+      console.log(`d${size}Button clicked`);
+      console.log(`Count d${size}Count`);
+      rollDiceMultiple(size, quantity);
+      result.innerHTML += `<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`;
+      sumOfDice = 0;
+    } else {
+      alert(`Select how many D${size}s you wish to roll.`);
+    }
+  }
   return (
     <>
     <div>SingleDieRoll</div>
     <input></input>
-    <button onClick="rollDice" className='button'>Roll</button>
+    <button onClick={rollDice} className='button'>Roll D{diceSize}</button>
 
     </>
   )
