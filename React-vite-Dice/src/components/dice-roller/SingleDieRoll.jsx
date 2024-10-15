@@ -172,6 +172,8 @@ function rollDice(size, quantity) {
     clearHistoryButton.style.display = "none";
   }
 
+
+  /* TODO make it so the die size and number of dice are passed as props */
 const SingleDieRoll = (props) => {
   return (
     <>
