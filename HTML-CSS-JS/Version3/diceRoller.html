@@ -1,1 +1,180 @@
 <!-- Version 3 of my Dice Roller code splipts the code into 3 seperate files to help with the ease of understanding. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Izzy's Dice Roller</title>
+    <link rel="stylesheet" href="diceRoller.css" />
+  </head>
+  <body>
+    <h1>Izzy's Dice Roller</h1>
+    <div class="gridContainer">
+      <button class="toggle-theme-btn" id="toggleThemeBtn">
+        <i class="fa-solid fa-toggle-off"></i>
+      </button>
+      <div>Select the <b>Number of Dice</b> you want to Roll</div>
+      <div>
+        <input
+          class="diceCount"
+          id="d4Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(4, d4Count)"
+          class="rollButton button"
+          id="d4Button"
+        >
+          Roll D4
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d6Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(6, d6Count)"
+          class="rollButton button"
+          id="d6Button"
+        >
+          Roll D6
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d8Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(8, d8Count)"
+          class="rollButton button"
+          id="d8Button"
+        >
+          Roll D8
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d10Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(10, d10Count)"
+          class="rollButton button"
+          id="d10Button"
+        >
+          Roll D10
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d12Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(12, d12Count)"
+          class="rollButton button"
+          id="d12Button"
+        >
+          Roll d12
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d20Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(20, d20Count)"
+          class="rollButton button"
+          id="d20Button"
+        >
+          Roll D20
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="d100Count"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollDice(100, d100Count)"
+          class="rollButton button"
+          id="d100Button"
+        >
+          Roll D100
+        </button>
+      </div>
+      <div>
+        <input
+          class="diceCount"
+          id="dXCount"
+          type="number"
+          value="0"
+          min="0"
+          step="1"
+        />
+        <button
+          onclick="rollVariableDice(dieSize.value, dXCount)"
+          class="rollButton button"
+          id="dXButton"
+        >
+          Roll D?
+        </button>
+        <input id="dieSize" type="number" value="0" min="0" />
+      </div>
+      <div>
+        <button
+          onclick="rollAllDice()"
+          class="rollButton button"
+          id="rollButton"
+        >
+          Roll Dice
+        </button>
+        <button onclick="reset()" class="resetButton button" id="Reset">
+          Reset
+        </button>
+      </div>
+    </div>
+    <div id="display">
+      <button
+        onclick="clearHistory()"
+        class="clearButton button"
+        id="clearHistory"
+      >
+        Clear History
+      </button>
+      <div id="result"></div>
+    </div>
+    <script src="./diceRoller.js"></script>
+  </body>
+</html>
