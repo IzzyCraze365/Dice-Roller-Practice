@@ -9,7 +9,7 @@ const SingleDieRoll = ({ diceSize }) => {
 
 const getQuantity = (e) => {
 console.log("e.target.value: ",e.target.value);
-setQuantity(e.target.value); // sets the value to match the event's input field value "e"
+setQuantity(e.target.value); // sets the value to match the event's input field value "e" and saves it as it changes
 console.log("Quantity: ",quantity);
 }
 
