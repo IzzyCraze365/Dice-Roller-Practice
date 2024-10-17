@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import "./dice-roller.css";
 
-/* TODO make it so the die size and number of dice are passed as props */
+/* TODO make it so the die size is passed as props */
+/* TODO Number of dice should be pulled from form in this component */
 const SingleDieRoll = ({ diceSize }) => {
   const [quantity, setQuantity] = useState();
 
