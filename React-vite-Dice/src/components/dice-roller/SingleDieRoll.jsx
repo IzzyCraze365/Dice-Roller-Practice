@@ -18,7 +18,7 @@ number = quantity;
 
 /* If I pass number into the following function instead of quanitty it gets to the alert but reads as undefined, otherwise it never gets there */
   function rollDice({ dieSize }, quantity) {
-    console.log(`size`, diceSize , `quantity`, quantity,`number`, number,);
+    console.log(`size`, diceSize , `quantity`, quantity,`number`, number);
     if (quantity.value > 0) {
       timesRolled += 1;
       console.log("Times Rolled: ", timesRolled);
