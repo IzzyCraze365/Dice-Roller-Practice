@@ -16,7 +16,7 @@ console.log("Quantity: ",quantity, typeof(quantity));
 number = quantity;
 }
 
-/* If I pass number into the following function instead of quanitty it gets to the alert but reads as undefined, otherwise it never gets there, still testing, why isn't it working??? */
+/* If I pass number into the following function instead of quanitty it gets to the alert but reads as undefined, otherwise it never gets there, still testing, why isn't it working? */
   function rollDice({ dieSize }, quantity) {
     console.log(`size`, diceSize , `quantity`, quantity,`number`, number);
     if (quantity.value > 0) {
