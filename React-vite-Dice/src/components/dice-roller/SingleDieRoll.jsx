@@ -2,24 +2,22 @@ import React from "react";
 import { useState } from "react";
 import "./dice-roller.css";
 
-/* TODO make it so the die size is passed as props */
-/* TODO Number of dice should be pulled from form in this component */
-
+/* The die size is passed as props */
+/* The Number of dice should be pulled from form in this component */
 
 const SingleDieRoll = ({ diceSize }) => {
-console.log("diceSize", diceSize, typeof(diceSize));
-const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState();
+  console.log("diceSize", diceSize, typeof diceSize);
 
-const getQuantity = (e) => {
-console.log("e.target.value: ",e.target.value, typeof(e.target.value));
-setQuantity(parseInt(e.target.value)); // sets the value to match the event's input field value "e" and saves it as it changes
-console.log("Quantity: ",quantity, typeof(quantity));
-}
+  const getQuantity = (e) => {
+    console.log("e.target.value: ", e.target.value, typeof e.target.value);
+    setQuantity(parseInt(e.target.value)); // sets the value to match the event's input field value "e" and saves it as it changes
+    console.log("Quantity: ", quantity, typeof quantity);
+  };
 
-/* If I pass number into the following function instead of quanitty it gets to the alert but reads as undefined, otherwise it never gets there, still testing, why isn't it working?? */
+  /* If I pass number into the following function instead of quanitty it gets to the alert but reads as undefined, otherwise it never gets there, still testing, why isn't it working?? */
   function rollDice() {
-
-    console.log(`size`, diceSize , `quantity`, quantity); //! TEST
+    console.log(`size`, diceSize, `quantity`, quantity); //! TEST
     if (quantity > 0) {
       timesRolled += 1;
       console.log("Times Rolled: ", timesRolled);
