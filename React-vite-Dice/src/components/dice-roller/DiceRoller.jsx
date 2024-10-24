@@ -1,10 +1,12 @@
 import React from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./dice-roller.css";
 import SingleDieRoll from "./SingleDieRoll";
 
 const DiceRoller = () => {
   const [totalSizes, setTotalSizes] = useState(0);
+  //TODO I need to add the useContext below
+/*   const [timesRolled, setTimesRolled] = useContext(0); */
   const numberOfSides = (e) => {
     console.log("e.target.value: ", e.target.value, typeof e.target.value);
     setTotalSizes(parseInt(e.target.value)); // sets the value to match the event's input field value "e" and saves it as it changes
