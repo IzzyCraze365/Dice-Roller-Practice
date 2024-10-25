@@ -4,13 +4,13 @@ import "./dice-roller.css";
 import SingleDieRoll from "./SingleDieRoll";
 
 const DiceRoller = () => {
-  const [totalSizes, setTotalSizes] = useState(0);
+  const [totalSides, setTotalSides] = useState(0);
   //TODO I need to add the useContext below
 /*   const [timesRolled, setTimesRolled] = useContext(0); */
   const numberOfSides = (e) => {
     console.log("e.target.value: ", e.target.value, typeof e.target.value);
-    setTotalSizes(parseInt(e.target.value)); // sets the value to match the event's input field value "e" and saves it as it changes
-    console.log("totalSizes: ", totalSizes, typeof totalSizes);
+    setTotalSides(parseInt(e.target.value)); // sets the value to match the event's input field value "e" and saves it as it changes
+    console.log("totalSides: ", totalSides, typeof totalSides);
   };
   return (
     <>
@@ -22,7 +22,7 @@ const DiceRoller = () => {
       <SingleDieRoll diceSize={10} />
       <SingleDieRoll diceSize={12} />
       <SingleDieRoll diceSize={20} />
-      <SingleDieRoll diceSize={totalSizes} />
+      <SingleDieRoll diceSize={totalSides} />
       <input onChange={numberOfSides} type="number" min="0"></input>{" "}
       {/* This is a variable dice, and the number of sizes can be changed */}
     </>
