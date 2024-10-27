@@ -4,9 +4,9 @@ export const DiceContext = createContext
 
 
 
-/* Version 3 of my Dice Roller code splipts the code into 3 seperate files to help with the ease of understanding. */
 
-/* This is for the JavaScript that makes the Dice Roll */
+
+/* This is the Version 3 JavaScript that makes the Dice Roll */
 
 /* Linking IDs to usable Variables */
 let toggleThemeBtn = document.getElementById("toggleThemeBtn");
