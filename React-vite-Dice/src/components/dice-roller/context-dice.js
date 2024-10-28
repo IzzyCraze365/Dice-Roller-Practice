@@ -5,7 +5,6 @@ export const DiceContext = createContext
 
 
 
-
 /* This is the Version 3 JavaScript that makes the Dice Roll */
 
 /* Linking IDs to usable Variables */
