@@ -1,6 +1,9 @@
 import React from "react";
 import { useContext, useState } from "react";
 import "./dice-roller.css";
+import {TimesRolledContext} from './DiceRoller.jsx'
+
+
 
 /* The die size is passed as props */
 /* The Number of dice should be pulled from form in this component */
@@ -17,7 +20,9 @@ const SingleDieRoll = ({ diceSize }) => {
 
   /* If I pass number into the following function instead of quanitty it gets to the alert but reads as undefined, otherwise it never gets there, still testing, why isn't it working?? */
   function rollDice() {
+    const timesRolled = useContext(TimesRolledContext)
     console.log(`size`, diceSize, `quantity`, quantity); //! TEST
+    console.log(`timesRolled`, timesRolled); //! TEST
     if (quantity > 0) {
       timesRolled += 1;
       console.log("Times Rolled: ", timesRolled);

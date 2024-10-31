@@ -1,8 +1,11 @@
 import { createContext } from "react";
 
-export const DiceContext = createContext
+let timesRolled = 0;
 
+//export const DiceContext = createContext<timesRolled | undefined>(undefined);
 
+/*Trying to figure out this useContext
+https://www.youtube.com/watch?v=FpNfvbNYPsg */
 
 
 /* This is the Version 3 JavaScript that makes the Dice Roll */
