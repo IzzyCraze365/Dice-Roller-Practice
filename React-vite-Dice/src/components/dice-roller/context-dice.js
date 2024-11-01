@@ -1,6 +1,6 @@
 import { createContext } from "react";
 
-let timesRolled = 0;
+//let timesRolled = 0;
 
 //export const DiceContext = createContext<timesRolled | undefined>(undefined);
 
