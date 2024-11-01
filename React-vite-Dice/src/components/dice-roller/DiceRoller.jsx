@@ -7,6 +7,9 @@ import SingleDieRoll from "./SingleDieRoll";
 https://www.youtube.com/watch?v=FpNfvbNYPsg 
 
 https://stackoverflow.com/questions/77219497/usecontext-is-not-working-in-vite-based-react-application
+
+Now I need to figure out the useContext for Vite... lovely
+
 */
 
 // Exporting Context to be picked up at any point down the line.
