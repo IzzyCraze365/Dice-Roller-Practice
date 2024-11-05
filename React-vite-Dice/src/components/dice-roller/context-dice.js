@@ -6,7 +6,7 @@ import { createContext } from "react";
 
 //export const DiceContext = createContext<timesRolled | undefined>(undefined);
 
-/*Trying to figure out useContext
+/*Trying to figure out how to impliment useContext
 https://www.youtube.com/watch?v=FpNfvbNYPsg */
 
 
