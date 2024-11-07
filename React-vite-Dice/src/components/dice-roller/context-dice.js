@@ -10,7 +10,7 @@ import { createContext } from "react";
 https://www.youtube.com/watch?v=FpNfvbNYPsg */
 
 
-/* This is the Version 3 JavaScript that makes the Dice Roll */
+/* This is the Version 3 JavaScript that makes the Dice Roll, I need to translate it to react */
 
 /* Linking IDs to usable Variables */
 let toggleThemeBtn = document.getElementById("toggleThemeBtn");
