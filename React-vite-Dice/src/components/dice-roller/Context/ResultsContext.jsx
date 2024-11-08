@@ -1,4 +1,4 @@
-// This houses the results that will be displayed
+// This Context houses the text results that will be displayed
 
 import { createContext, useState } from "react";
 

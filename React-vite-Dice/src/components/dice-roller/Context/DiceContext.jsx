@@ -1,4 +1,4 @@
-// This will save how many times the Dice have been rolled
+// This Context will save how many times the Dice have been rolled
 
 import { createContext, useState } from "react";
 
