@@ -16,7 +16,7 @@ const SingleDieRoll = ({ diceSize }) => {
 
   const [quantity, setQuantity] = useState();
   const [sumOfDice, setSumOfDice] = useState(0);
-  console.log("diceSize", diceSize, typeof diceSize);
+  //console.log("diceSize", diceSize, typeof diceSize); //! TEST
 
   const getQuantity = (e) => {
     console.log("e.target.value: ", e.target.value, typeof e.target.value);
@@ -26,9 +26,11 @@ const SingleDieRoll = ({ diceSize }) => {
 
   /* If I pass number into the following function instead of quanitty it gets to the alert but reads as undefined, otherwise it never gets there, still testing, why isn't it working?? */
   function rollDice() {
-    //const timesRolled = useContext(TimesRolledContext)
+    console.log(`inside rollDice`);
+    console.log("sumOfDice",sumOfDice);
+    setSumOfDice(0);
+    console.log("sumOfDice",sumOfDice);
     console.log(`size`, diceSize, `quantity`, quantity); //! TEST
-    //console.log(`timesRolled`, timesRolled); //! TEST
     if (quantity > 0) {
       setTimesRolled(timesRolled+1);
       console.log("Times Rolled: ", timesRolled);
@@ -37,7 +39,6 @@ const SingleDieRoll = ({ diceSize }) => {
       console.log(`Count d${diceSize}Count`);
       rollDiceMultiple(diceSize, quantity);
      setResult(result+`Sum of Dice = ${sumOfDice}<br>`);
-      setSumOfDice(0);
     } else {
       console.log(diceSize);
       console.log(`Select how many D${diceSize}s you wish to roll.`);
@@ -48,7 +49,8 @@ const SingleDieRoll = ({ diceSize }) => {
   
 function rollDiceMultiple(size, quantity) {
   //This works by checking both to be above the Variable Dice
-  for (let i = 0; i < quantity.value; i++) {
+  console.log("Inside rollDiceMultiple.  Size:", size,"Quantity:",quantity)
+  for (let i = 0; i < quantity; i++) {
     console.log(`Times Rolling a D${size} = #${i + 1}`);
     rollDiceDisplay(size);
   }
@@ -56,14 +58,21 @@ function rollDiceMultiple(size, quantity) {
 
 // This function prints the results of the Dice Rolls.
 function rollDiceDisplay(maxValue) {
-  //let newLine = document.createElement("p");
+  console.log("Inside rollDiceDisplay.  maxValue:", maxValue)
   let outcome = randomNum(1, maxValue);
   console.log(`Outcome: `, outcome);
   setResult(result+`<p>D${maxValue} result is ${outcome}</p><br>`);
   setSumOfDice(sumOfDice+outcome);
   console.log("sumOfDice",sumOfDice)
-  display.style.display = "block";
-  clearHistoryButton.style.display = "block";
+  /* display.style.display = "block";
+  clearHistoryButton.style.display = "block"; */
+}
+
+// Classic Random Number Generator Helper Function
+function randomNum(min, max) {
+  let range = max - min + 1;
+  console.log(`Min: ${min} / Max: ${max} / Range: ${range}`);
+  return Math.floor(Math.random() * range) + min;
 }
 
 //Todo the following funtions need to be editied
@@ -139,12 +148,7 @@ function rollAllDice() {
 }
 
 
-// Classic Random Number Generator Helper Function
-function randomNum(min, max) {
-  let range = max - min + 1;
-  console.log(`Min: ${min} / Max: ${max} / Range: ${range}`);
-  return Math.floor(Math.random() * range) + min;
-}
+
 
 // Resets all Values for the Dice Rollers
 function reset() {

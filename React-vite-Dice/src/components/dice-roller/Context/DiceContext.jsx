@@ -15,4 +15,5 @@ const DiceProvider = ({ children }) => {
   );
 };
 
+// This is exporting the constant created from line 8
 export default DiceProvider;
