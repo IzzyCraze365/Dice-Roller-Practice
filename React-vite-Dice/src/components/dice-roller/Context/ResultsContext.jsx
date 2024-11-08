@@ -6,7 +6,7 @@ import { createContext, useState } from "react";
 export const ResultsContext = createContext();
 
 const ResultsProvider = ({ children }) => {
-  const [result, setResult] = useState();
+  const [result, setResult] = useState(``);
 
   
 function rollDice(size, quantity) {

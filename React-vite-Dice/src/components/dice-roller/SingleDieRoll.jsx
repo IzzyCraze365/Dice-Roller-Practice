@@ -12,8 +12,10 @@ import { ResultsContext } from "./Context/ResultsContext";
 const SingleDieRoll = ({ diceSize }) => {
   const [timesRolled, setTimesRolled] = useContext(DiceContext); //This is pulling the values from the DiceContext Provider
   const [result, setResult] = useContext(ResultsContext); //This is pulling the values from the ResultsContext Provider
+  
 
   const [quantity, setQuantity] = useState();
+  const [sumOfDice, setSumOfDice] = useState(0);
   console.log("diceSize", diceSize, typeof diceSize);
 
   const getQuantity = (e) => {
@@ -28,14 +30,14 @@ const SingleDieRoll = ({ diceSize }) => {
     console.log(`size`, diceSize, `quantity`, quantity); //! TEST
     //console.log(`timesRolled`, timesRolled); //! TEST
     if (quantity > 0) {
-      //timesRolled += 1;
-      //console.log("Times Rolled: ", timesRolled);
-      //result.innerHTML += `<p class="rollCounter">Roll #${timesRolled}</p>`;
+      setTimesRolled(timesRolled+1);
+      console.log("Times Rolled: ", timesRolled);
+      setResult(result+`<p class="rollCounter">Roll #${timesRolled}</p>`);
       console.log(`d${diceSize}Button clicked`);
       console.log(`Count d${diceSize}Count`);
       rollDiceMultiple(diceSize, quantity);
-      result.innerHTML += `<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`;
-      sumOfDice = 0;
+     setResult(result+`<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`);
+      setSumOfDice(0);
     } else {
       console.log(diceSize);
       console.log(`Select how many D${diceSize}s you wish to roll.`);
@@ -57,8 +59,9 @@ function rollDiceDisplay(maxValue) {
   //let newLine = document.createElement("p");
   let outcome = randomNum(1, maxValue);
   console.log(`Outcome: `, outcome);
-  result.innerHTML += `<p>D${maxValue} result is ${outcome}</p>`;
-  sumOfDice += outcome;
+  setResult(result+`<p>D${maxValue} result is ${outcome}</p>`);
+  setSumOfDice(sumOfDice+outcome);
+  console.log("sumOfDice",sumOfDice)
   display.style.display = "block";
   clearHistoryButton.style.display = "block";
 }
