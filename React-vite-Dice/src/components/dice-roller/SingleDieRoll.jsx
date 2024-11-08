@@ -32,11 +32,11 @@ const SingleDieRoll = ({ diceSize }) => {
     if (quantity > 0) {
       setTimesRolled(timesRolled+1);
       console.log("Times Rolled: ", timesRolled);
-      setResult(result+`<p class="rollCounter">Roll #${timesRolled}</p>`);
+      setResult(result+`<p class="rollCounter">Roll #${timesRolled}</p><br>`);
       console.log(`d${diceSize}Button clicked`);
       console.log(`Count d${diceSize}Count`);
       rollDiceMultiple(diceSize, quantity);
-     setResult(result+`<p class="sumOfDice">Sum of Dice = ${sumOfDice}</p>`);
+     setResult(result+`Sum of Dice = ${sumOfDice}<br>`);
       setSumOfDice(0);
     } else {
       console.log(diceSize);
@@ -59,7 +59,7 @@ function rollDiceDisplay(maxValue) {
   //let newLine = document.createElement("p");
   let outcome = randomNum(1, maxValue);
   console.log(`Outcome: `, outcome);
-  setResult(result+`<p>D${maxValue} result is ${outcome}</p>`);
+  setResult(result+`<p>D${maxValue} result is ${outcome}</p><br>`);
   setSumOfDice(sumOfDice+outcome);
   console.log("sumOfDice",sumOfDice)
   display.style.display = "block";

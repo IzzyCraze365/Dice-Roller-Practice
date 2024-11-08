@@ -8,7 +8,7 @@ const DisplayDice = () => {
 
   return (
     <>
-      <div>{result}</div>
+      <div dangerouslySetInnerHTML={{__html: result}}></div>
     </>
   );
 };
