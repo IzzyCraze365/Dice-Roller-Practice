@@ -1,5 +1,8 @@
+// This will save how many times the Dice have been rolled
+
 import { createContext, useState } from "react";
 
+// Exporting Context to be picked up at any point down the line.
 export const DiceContext = createContext();
 
 const DiceProvider = ({ children }) => {
