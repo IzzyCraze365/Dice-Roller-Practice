@@ -4,6 +4,7 @@ import "./dice-roller.css";
 import SingleDieRoll from "./SingleDieRoll";
 import DiceProvider, { DiceContext } from "./Context/DiceContext";
 import ResultsProvider, { ResultsContext } from "./Context/ResultsContext";
+import DisplayDice from "./DisplayDice";
 
 /*Trying to figure out this useContext
 https://www.youtube.com/watch?v=FpNfvbNYPsg 
@@ -40,6 +41,7 @@ const DiceRoller = () => {
           <input onChange={numberOfSides} type="number" min="0"></input>{" "}
           {/* This is a variable dice, and the number of sizes can be changed */}
         </DiceProvider>
+        <DisplayDice />
       </ResultsProvider>
     </>
   );
