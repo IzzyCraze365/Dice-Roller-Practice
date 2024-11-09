@@ -29,6 +29,7 @@ const SingleDieRoll = ({ diceSize }) => {
     console.log(`inside rollDice`);
     console.log("sumOfDice",sumOfDice);
     setSumOfDice(0);
+    setQuantity(quantity);
     console.log("sumOfDice",sumOfDice);
     console.log(`size`, diceSize, `quantity`, quantity); //! TEST
     if (quantity > 0) {
