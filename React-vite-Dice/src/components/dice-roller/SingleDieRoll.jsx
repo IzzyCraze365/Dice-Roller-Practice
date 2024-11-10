@@ -34,7 +34,7 @@ const SingleDieRoll = ({ diceSize }) => {
     console.log(`size`, diceSize, `quantity`, quantity); //! TEST
     if (quantity > 0) {
       setTimesRolled(timesRolled+1);
-      console.log("Times Rolled: ", timesRolled); // TODO why isn't this printing???
+      console.log("Times Rolled: ", timesRolled); // TODO why isn't this printing?
       setResult(result+`<p class="rollCounter">Roll #${timesRolled}</p><br>`);
       console.log(`d${diceSize}Button clicked`);
       console.log(`Count d${diceSize}Count`);
