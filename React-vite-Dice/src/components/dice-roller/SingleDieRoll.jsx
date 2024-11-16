@@ -69,7 +69,7 @@ function rollDiceDisplay(maxValue) {
   clearHistoryButton.style.display = "block"; */
 }
 
-// Classic Random Number Generator Helper Function.
+// Classic Random Number Generator Helper Function
 function randomNum(min, max) {
   let range = max - min + 1;
   console.log(`Min: ${min} / Max: ${max} / Range: ${range}`);
