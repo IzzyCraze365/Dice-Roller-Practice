@@ -49,7 +49,7 @@ const SingleDieRoll = ({ diceSize }) => {
 
   
 function rollDiceMultiple(size, quantity) {
-  //This works by checking both to be above the Variable Dice
+  //This works by checking both to be above the Variable Dice.
   console.log("Inside rollDiceMultiple.  Size:", size,"Quantity:",quantity)
   for (let i = 0; i < quantity; i++) {
     console.log(`Times Rolling a D${size} = #${i + 1}`);
