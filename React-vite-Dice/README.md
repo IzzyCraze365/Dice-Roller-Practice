@@ -1,4 +1,5 @@
 # React + Vite
+These are the commands you need to use to create, install and run this program.
 
 ## Creating
 npm create vite@latest
